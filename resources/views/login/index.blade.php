@@ -41,36 +41,19 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                     </div>
-                                    {{-- ERROR LOGIN ATAU VALIDASI --}}
-                                    @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul class="mb-0">
-                                            @foreach ($errors->all() as $err)
-                                            <li>{{ $err }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    @endif
-
-                                    <form class="user" action="/login" method="POST">
-                                        @csrf
-
+                                    <form class="user">
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control form-control-user"
-                                                placeholder="Enter Email Address..." value="{{ old('email') }}">
+                                            <input type="email" class="form-control form-control-user"
+                                                placeholder="Enter Email Address...">
                                         </div>
-
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control form-control-user"
+                                            <input type="password" class="form-control form-control-user"
                                                 placeholder="Password">
                                         </div>
-
-                                        <button class="btn btn-primary btn-user btn-block">
+                                        <a href="#" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </button>
-
+                                        </a>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
