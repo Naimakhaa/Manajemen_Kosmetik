@@ -12,7 +12,7 @@ Route::get('/', function () {
 // Login
 Route::get('/login', function () {
     return view('login');
-})->name('login');
+})->name('login.login');
 
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login.post');
 
