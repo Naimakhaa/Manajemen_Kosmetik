@@ -4,6 +4,11 @@ use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
+// Arahkan halaman utama ke login
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
 // Login
 Route::get('/login', function () {
     return view('login');
@@ -16,22 +21,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
 
-Route::get('/', [MenuController::class, 'index']); // ← tambahkan ini
-
 // Menampilkan daftar menu
-Route::get('/menu', [MenuController::class, 'index']);
+Route::get('/menu', [MenuController::class, 'index'])->middleware('auth');
 
 // Menampilkan form tambah menu
-Route::get('/tambahmenu', [MenuController::class, 'create']);
+Route::get('/tambahmenu', [MenuController::class, 'create'])->middleware('auth');
 
-// Menyimpan menu baru
-Route::post('/tambahmenu', [MenuController::class, 'store']);
+// Simpan menu baru
+Route::post('/tambahmenu', [MenuController::class, 'store'])->middleware('auth');
 
-// Menampilkan form edit menu
-Route::get('/editmenu/{id}', [MenuController::class, 'edit']);
+// Edit menu
+Route::get('/editmenu/{id}', [MenuController::class, 'edit'])->middleware('auth');
 
-// Update data menu
-Route::post('/editmenu/{id}', [MenuController::class, 'update']);
+// Update menu
+Route::post('/editmenu/{id}', [MenuController::class, 'update'])->middleware('auth');
 
-// Hapus data menu
-Route::get('/hapusmenu/{id}', [MenuController::class, 'destroy']);
+// Hapus menu
+Route::get('/hapusmenu/{id}', [MenuController::class, 'destroy'])->middleware('auth');
