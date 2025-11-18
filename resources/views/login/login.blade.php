@@ -99,7 +99,7 @@
                                                     id="remember"
                                                     name="remember">
                                                 <label class="custom-control-label" for="remember">
-                                                    Ingat saya
+                                                    xxxxxx
                                                 </label>
                                             </div>
                                         </div>
