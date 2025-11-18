@@ -2,8 +2,19 @@
 
 use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 // Login
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/login', [AuthController::class, 'authenticate'])->name('login.post');
+
+// Dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth');
 
 Route::get('/', [MenuController::class, 'index']); // ← tambahkan ini
 
