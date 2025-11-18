@@ -5,21 +5,22 @@ use Illuminate\Support\Facades\Route;
 
 // Login
 
-    // Menampilkan daftar menu
-    Route::get('/menu', [MenuController::class, 'index']);
+Route::get('/', [MenuController::class, 'index']); // ← tambahkan ini
 
-    // Menampilkan form tambah menu
-    Route::get('/tambahmenu', [MenuController::class, 'create']);
+// Menampilkan daftar menu
+Route::get('/menu', [MenuController::class, 'index']);
 
-    // Menyimpan menu baru
-    Route::post('/tambahmenu', [MenuController::class, 'store']);
+// Menampilkan form tambah menu
+Route::get('/tambahmenu', [MenuController::class, 'create']);
 
-    // Menampilkan form edit menu
-    Route::get('/editmenu/{id}', [MenuController::class, 'edit']);
+// Menyimpan menu baru
+Route::post('/tambahmenu', [MenuController::class, 'store']);
 
-    // Update data menu
-    Route::post('/editmenu/{id}', [MenuController::class, 'update']);
+// Menampilkan form edit menu
+Route::get('/editmenu/{id}', [MenuController::class, 'edit']);
 
-    // Hapus data menu
-    Route::get('/hapusmenu/{id}', [MenuController::class, 'destroy']);
+// Update data menu
+Route::post('/editmenu/{id}', [MenuController::class, 'update']);
 
+// Hapus data menu
+Route::get('/hapusmenu/{id}', [MenuController::class, 'destroy']);
