@@ -6,14 +6,15 @@ use App\Http\Controllers\AuthController;
 
 // Arahkan halaman utama ke login
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('login');   // nama rute: 'login'
 });
 
 // Login
 Route::get('/login', function () {
-    return view('login');
-})->name('login.login');
+    return view('login.login');          // sesuai folder: resources/views/login/login.blade.php
+})->name('login');                       // jangan 'login.login', cukup 'login'
 
+// Proses login
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login.post');
 
 // Dashboard
