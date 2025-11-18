@@ -14,6 +14,16 @@ Route::get('/login', function () {
     return view('login.login');          // sesuai folder: resources/views/login/login.blade.php
 })->name('login');                       // jangan 'login.login', cukup 'login'
 
+Route::get('/buat-admin', function () {
+    \App\Models\User::create([
+        'name' => 'Admin SIMAKO',
+        'email' => 'admin@simako.test',
+        'password' => \Illuminate\Support\Facades\Hash::make('password123'),
+    ]);
+
+    return 'User admin berhasil dibuat!';
+});
+
 // Proses login
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login.post');
 
